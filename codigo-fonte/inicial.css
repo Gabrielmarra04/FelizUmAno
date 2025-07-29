@@ -12,7 +12,7 @@ body {
 }
 
 #container {
-  max-width: 600px;
+  max-width: 900px;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 20px;
@@ -110,7 +110,7 @@ div {
 
 }
 
-.div1 img {
+.div img {
   filter: saturate(0%);
   width: 10%;
   border: 2px solid #fff;
@@ -121,7 +121,7 @@ div {
   cursor: pointer;
 }
 
-.div1 img:hover {
+.div img:hover {
   filter: saturate(100%);
   width: 100%;
   transform: scale(1.1);
