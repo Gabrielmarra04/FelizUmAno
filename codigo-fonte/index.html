@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08/08/2025</title>
+  <link rel="stylesheet" href="inicial.css">
+
+</head>
+
+<body>
+  <div id="container">
+    <H1>FELIZ 1° ANIVERSÁRIO DE NAMORO!!!</H1>
+    <p>Hoje é um dia muito especial pra nós, pois celebramos nosso primeiro ano juntos. Cada momento ao seu lado tem
+      sido uma
+      aventura incrível, cheia de amor e felicidade. Que venham muitos mais anos de amor e companheirismo!</p>
+    <p>Começamos nossa história no dia 12/06/2023, e desde então, cada dia tem sido especial. Tivemos momentos de
+      alegria, risadas, e até algumas dificuldades, mas sempre superamos juntos.</p>
+    <p id="amor">TE AMO MUITO, MINHA PRINCESA 💖</p>
+    <p>Vamos fazer um tour nesse 1° ano de namoro!</p>
+
+
+    <button class="btn btn--doar" onclick="abrirModal()">Clique aqui!</button>
+
+    <div id="modalOverlay" class="modal-overlay">
+      <div class="modal">
+        <p>Antes de tudo, deseja continuar com esse lindo relacionamento com esse lindo homem?</p>
+        <button class="yes" onclick="responderSim()">Sim</button>
+        <button class="no" onclick="responderNao()">Não</button>
+      </div>
+    </div>
+
+    <div id="mensagemErro" class="error"></div>
+  </div>
+
+</body>
+<script>
+  function abrirModal() {
+    document.getElementById('modalOverlay').style.display = 'flex';
+    document.getElementById('mensagemErro').textContent = '';
+  }
+
+  function responderSim() {
+    document.getElementById('modalOverlay').style.display = 'none';
+    // Simula abertura de nova tela (redirecionamento)
+    window.location.href = 'telas/nova-tela.html'; // Substitua pela URL desejada
+  }
+
+  function responderNao() {
+    document.getElementById('modalOverlay').style.display = 'none';
+    document.getElementById('mensagemErro').textContent = 'Erro: Pensa melhor, essa resposta ai tá errada!';
+  }
+</script>
+
+</html>
