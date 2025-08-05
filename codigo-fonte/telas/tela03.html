@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tradição do 🍔</title>
+  <title> QUAL A RESPOSTA ❓</title>
   <link rel="stylesheet" href="inicial.css">
 </head>
 
@@ -70,18 +70,164 @@
   }
 </style>
 
+<style>
+  .question-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .option {
+    display: block;
+    background: #585044;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .option:hover {
+    background: #dd914fcb;
+  }
+
+  .correct {
+    background-color: #4CAF50 !important;
+    /* verde */
+    color: white;
+  }
+
+  .incorrect {
+    background-color: #F44336 !important;
+    /* vermelho */
+    color: white;
+  }
+
+  #message {
+    margin-top: 20px;
+    color: red;
+    font-weight: bold;
+  }
+
+  #next-btn {
+
+    padding: 10px 20px;
+    font-size: 26px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    display: none;
+  }
+
+  #next-btn:hover {
+    background-color: #45a049;
+  }
+
+  #extra-content {
+    margin-top: 30px;
+    display: none;
+  }
+
+  #extra-content img {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  }
+
+  #extra-content #img6 {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  }
+</style>
+
 <body>
   <header class="root_header">
     <div class="header">
-      <h1 class="title">Tour do 1° Ano de Namoro</h1>
+      <h1 class="title">❤️🥳 Tour do 1° Ano de Namoro 🎉❤️</h1>
     </div>
   </header>
+
   <div id="container">
-    <h1>Tour do 1° Ano de Namoro</h1>
-    <div class="div">
-      <img src="../namoro1/img/image.png" alt="Imagem do Tour">
+    <h1>PERGUNTA DO MILHÃO! 🤔❓</h1>
+    <h3> Quando saímos juntos, SEMPRE escolhemos o seguinte item para comer:</h3>
+
+
+    <h2>Clique em um item:</h2>
+    <div class="option" onclick="checkAnswer(this, false)">Churrasco</div>
+    <div class="option" onclick="checkAnswer(this, false)">Sushi</div>
+    <div class="option" onclick="checkAnswer(this, true)">Hambúrguer</div>
+    <div class="option" onclick="checkAnswer(this, false)">Macarrão</div>
+    <div id="message"></div>
+
+    <div id="extra-content">
+      <h3>Parabéns! Acertou amor! Tá ai uns dates que a gente saiu e comeu hambúrguer:</h3>
+      <div class="div1">
+        <img src="../img/hamb1.jpeg" alt="">
+        <img src="../img/hamb2.jpeg" alt="">
+        <img src="../img/hamb3.jpg" alt="">
+        <img src="../img/hamb4.jpg" alt="">
+        <img src="../img/hamb5.jpg" alt="">
+        <img id="img6" src="../img/hamb6.jpg" alt="">
+      </div>
     </div>
-    <p>Essa é a nossa tradição de comemorar o primeiro ano de namoro com um delicioso hambúrguer!</p>
+
+    <button id="next-btn" onclick="goToNextPage()">Bora pra próxima!</button>
+  </div>
+
+  <script>
+    function checkAnswer(element, isCorrect) {
+      const options = document.querySelectorAll('.option');
+      const message = document.getElementById('message');
+      const nextBtn = document.getElementById('next-btn');
+      const extraContent = document.getElementById('extra-content');
+
+      if (isCorrect) {
+        element.classList.add('correct');
+        message.innerText = 'Resposta correta!';
+        message.style.color = 'green';
+        nextBtn.style.display = 'inline-block';
+        extraContent.style.display = 'block';
+        disableOptions();
+      } else {
+        element.classList.add('incorrect');
+        message.innerText = 'Ixi errou feio! Tenta de novo! ❌';
+        message.style.color = 'red';
+
+        setTimeout(() => {
+          // Limpa estilos e mensagem
+          options.forEach(opt => {
+            opt.classList.remove('incorrect');
+            opt.classList.remove('correct');
+          });
+          message.innerText = '';
+        }, 2000);
+      }
+    }
+
+    function disableOptions() {
+      const options = document.querySelectorAll('.option');
+      options.forEach(opt => opt.onclick = null);
+    }
+    function goToNextPage() {
+      // Substitua pelo link desejado
+      window.location.href = 'tela04.html'; // Link para a próxima página
+    }
+  </script>
+
+
   </div>
 </body>
 
