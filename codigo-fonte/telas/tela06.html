@@ -135,6 +135,205 @@
   }
 </style>
 
+<!-- Música silenciosa no início -->
+<audio id="bg-music" autoplay loop>
+  <source src="../img/Jorge & Mateus - Duas Metades - [DVD Ao Vivo em Jurerê] - (Clipe Oficial).mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio HTML5.
+</audio>
+<!-- 🎶 Controles personalizados de música -->
+<div id="music-controls">
+  <button onclick="togglePlay()" id="play-btn">⏸️</button>
+  <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.7">
+</div>
+<!-- Tela de início com corações animados -->
+<div id="start-overlay">
+  <h2>Clique para começar nossa história 💖</h2>
+  <div class="hearts">
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+
+  </div>
+</div>
+
+<style>
+  #music-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 999;
+  }
+
+  #music-controls button {
+    background-color: #ff4d88;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  #music-controls button:hover {
+    background-color: #ff1a66;
+  }
+
+  #volume-slider {
+    width: 100px;
+  }
+
+  #start-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: pink;
+    transform: rotate(45deg);
+    animation: float 6s infinite ease-in;
+  }
+
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: pink;
+    border-radius: 50%;
+  }
+
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+
+  .heart::after {
+    left: -10px;
+    top: 0;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0) rotate(45deg);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(-100vh) rotate(45deg);
+      opacity: 0;
+    }
+  }
+
+  /* Distribuir corações aleatoriamente */
+  .heart:nth-child(1) {
+    left: 20%;
+    animation-delay: 0s;
+  }
+
+  .heart:nth-child(2) {
+    left: 40%;
+    animation-delay: 1s;
+  }
+
+  .heart:nth-child(3) {
+    left: 60%;
+    animation-delay: 2s;
+  }
+
+  .heart:nth-child(4) {
+    left: 80%;
+    animation-delay: 3s;
+  }
+
+  .heart:nth-child(5) {
+    left: 30%;
+    animation-delay: 4s;
+  }
+
+  .heart:nth-child(6) {
+    left: 50%;
+    animation-delay: 5s;
+  }
+
+  .heart:nth-child(7) {
+    left: 70%;
+    animation-delay: 6s;
+  }
+</style>
+
+<script>
+  const music = document.getElementById('bg-music');
+  const playBtn = document.getElementById('play-btn');
+  const volumeSlider = document.getElementById('volume-slider');
+  music.volume = 0; // Começa silencioso
+
+  document.getElementById('start-overlay').addEventListener('click', () => {
+    music.volume = 0.7;
+    music.play();
+    document.getElementById('start-overlay').style.display = 'none';
+  });
+
+
+  // Atualiza volume
+  volumeSlider.addEventListener('input', () => {
+    music.volume = volumeSlider.value;
+  });
+
+  // Alternar play/pause
+  function togglePlay() {
+    if (music.paused) {
+      music.play();
+      playBtn.textContent = '⏸️';
+    } else {
+      music.pause();
+      playBtn.textContent = '▶️';
+    }
+  }
+</script>
+
+
 <body>
   <header class="root_header">
     <div class="header">
