@@ -109,20 +109,3 @@ div {
   font-size: 3.5rem;
 
 }
-
-.div img {
-  filter: saturate(0%);
-  width: 10%;
-  border: 2px solid #fff;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.div img:hover {
-  filter: saturate(100%);
-  width: 100%;
-  transform: scale(1.1);
-}
