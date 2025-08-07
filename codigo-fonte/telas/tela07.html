@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> O PEDIDO DE NAMORO 💍</title>
+  <title> FOTINHAS DO CASAL ❤️📸</title>
   <link rel="stylesheet" href="inicial.css">
 </head>
 
@@ -78,75 +78,106 @@
 
   #extra-content img {
     width: 560px;
-    height: 280px;
+    height: 380px;
 
     /* Força modo paisagem */
     object-fit: cover;
     margin: 10px auto;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
 
-  #next-btn {
-
-    padding: 10px 20px;
-    font-size: 26px;
-    border: none;
-    border-radius: 5px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-
-  }
-
-  #next-btn:hover {
-    background-color: #f74d4d;
   }
 </style>
 
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #000000, #330033);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .heart {
+    position: relative;
+    width: 200px;
+    height: 180px;
+    background: red;
+    transform: rotate(-45deg);
+    animation: pulse 2s infinite;
+    box-shadow:
+      0 0 30px rgba(255, 0, 0, 0.8),
+      0 0 60px rgba(255, 0, 0, 0.6),
+      0 0 90px rgba(255, 0, 0, 0.4);
+  }
+
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    background: red;
+    border-radius: 50%;
+  }
+
+  .heart::before {
+    top: -100px;
+    left: 0;
+  }
+
+  .heart::after {
+    left: 100px;
+    top: 0;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1) rotate(-45deg);
+      box-shadow:
+        0 0 30px rgba(255, 0, 0, 0.8),
+        0 0 60px rgba(255, 0, 0, 0.6),
+        0 0 90px rgba(255, 0, 0, 0.4);
+    }
+
+    50% {
+      transform: scale(1.2) rotate(-45deg);
+      box-shadow:
+        0 0 60px rgba(255, 100, 100, 1),
+        0 0 100px rgba(255, 0, 0, 1),
+        0 0 140px rgba(255, 0, 100, 0.8);
+    }
+
+    100% {
+      transform: scale(1) rotate(-45deg);
+      box-shadow:
+        0 0 30px rgba(255, 0, 0, 0.8),
+        0 0 60px rgba(255, 0, 0, 0.6),
+        0 0 90px rgba(255, 0, 0, 0.4);
+    }
+  }
+</style>
 
 <body>
   <header class="root_header">
     <div class="header">
       <h1 class="title">❤️🥳 Tour do 1° Ano de Namoro 🎉❤️</h1>
+      <p>Produção by - Biel</p>
+      <p>08/08/2025</p>
     </div>
   </header>
 
-  <div id="container">
-    <h1>O PEDIDO DE NAMORO 💍❤️</h1>
-    <H4>O dia tão esperado chegou!! E claro que eu iria fazer uma surpresa e te pedir em namoro num dia secreto,
-      08/08/2024.</H4>
-    <h4> Comprei as alianças de namoro morrendo de medo de ser feia, ficar tamanho errado, perder, você não me amar
-      mais, deu medo de TUDO mas fui na fé, porque eu queria muito poder te chamar de MINHA NAMORADA!</h4>
-    <h4>Graças a Deus deu tudo certo, tamanho certo, sol bonito, você toda linda e a gente namoradinhos, eu amo muito
-      tudo isso! ❤️</h4>
-
-    <div class="div1">
-      <img src="../img/namoro3.jpg" alt="">
-      <img src="../img/namoro4.jpg" alt="">
-      <img src="../img/namoro5.jpg" alt="">
-      <img src="../img/namoro6.jpg" alt="">
-      <div id="extra-content">
-        <img src="../img/namoro1.jpg" alt="">
-        <img src="../img/namoro2.jpg" alt="">
-      </div>
-    </div>
-
-    <button id="next-btn" onclick="goToNextPage()">E PRA ACABAR...</button>
-
-  </div>
+  <body>
+    <div class="heart"></div>
+  </body>
 
   <script>
-    const nextBtn = document.getElementById('next-btn');
-    nextBtn.style.display = 'center'; // Exibe o botão quando a página carrega
-    function goToNextPage() {
-      // Substitua pelo link desejado
-      window.location.href = 'tela06.html'; // Link para a próxima página
-    }
   </script>
 
 
-  </div>
+
 </body>
 
 </html>

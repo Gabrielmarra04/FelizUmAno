@@ -301,6 +301,29 @@
     left: 70%;
     animation-delay: 6s;
   }
+
+  #next-btn {
+
+    padding: 10px 20px;
+    font-size: 26px;
+    border: none;
+    border-radius: 5px;
+    background-color: #bebebe;
+    color: white;
+    cursor: pointer;
+
+  }
+
+  #next-btn:hover {
+    background-color: #631212;
+  }
+
+  #tobe {
+    font-size: 44px;
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
 </style>
 
 <script>
@@ -380,11 +403,22 @@
         </video>
       </div>
 
+      <div>
+        <h3 id="tobe">To be continued...</h3>
+        <p>Até 2026!</p>
+        <button id="next-btn" onclick="goToNextPage()">❤️❤️❤️</button>
+
+      </div>
 
     </div>
 
     <script>
-
+      const nextBtn = document.getElementById('next-btn');
+      nextBtn.style.display = 'center'; // Exibe o botão quando a página carrega
+      function goToNextPage() {
+        // Substitua pelo link desejado
+        window.location.href = 'tela07.html'; // Link para a próxima página
+      }
     </script>
 
 
